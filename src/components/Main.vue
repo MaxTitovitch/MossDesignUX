@@ -1,11 +1,12 @@
 <template>
   <v-container>
     <v-row class="text-center mt-3 align-start">
-      <v-col cols="5" class="d-flex align-center px-5 flex-column justify-center">
+      <v-col cols="12" md="5" class="d-flex align-center px-5 flex-column justify-center">
         <v-img
           :src="require('@/assets/main.png')"
           contain
           width="100%"
+          class="hidden-md-and-down"
         />
         <v-audio-player
           :src="require('@/assets/mosh.mp3')"
@@ -27,7 +28,7 @@
               </h1>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <pre class="text-left">
+              <pre class="text-left overflow-x-auto">
                 {{ mossText }}
               </pre>
             </v-expansion-panel-content>
@@ -35,7 +36,7 @@
         </v-expansion-panels>
       </v-col>
 
-      <v-col cols="7" class="mb-4 px-5">
+      <v-col cols="12" md="7" class="mb-4 px-5">
         <h2 class="display-1 font-weight-bold text-center">
           Oxxxymiron
         </h2>
@@ -47,13 +48,13 @@
         <v-list three-line>
           <template v-for="(item, index) in links">
             <v-list-item :key="index" :href="item.link" target="_blank">
-              <v-list-item-avatar width="120px" height="100px">
+              <v-list-item-avatar :width="$vuetify.breakpoint.smAndDown ? '150px' : '120px'" :height="$vuetify.breakpoint.smAndDown ? '100px' : '95px'">
                 <div>
                   <v-img :src="item.photo" class="image-realise"></v-img>
                 </div>
               </v-list-item-avatar>
 
-                <v-list-item-title v-html="item.label"></v-list-item-title>
+              <v-list-item-title v-html="item.label"></v-list-item-title>
             </v-list-item>
           </template>
         </v-list>
@@ -66,13 +67,13 @@
 import {mossText, oxyDescription} from '@/constants/text';
 import sv from '@/assets/sv.jpeg';
 import kiu from '@/assets/kiu.jpeg';
-import VAudioPlayer from "@/components/external/VuetifyAudioPlayer";
+import VAudioPlayer from '@/components/external/VuetifyAudioPlayer';
 
 export default {
   name: 'Main',
 
   components: {
-    VAudioPlayer
+    VAudioPlayer,
   },
 
   data: () => ({
@@ -90,18 +91,18 @@ export default {
         photo: sv,
 
       },
-    ]
+    ],
   }),
 };
 </script>
 
 <style scoped>
-  h1 {
-      color: #066b01;
-  }
+h1 {
+    color: #066b01;
+}
 
-  .image-realise {
-      width: 100px!important;
-      height: 100px!important;
-  }
+.image-realise {
+    width: 100px !important;
+    height: 100px !important;
+}
 </style>

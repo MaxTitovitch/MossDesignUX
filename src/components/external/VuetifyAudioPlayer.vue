@@ -1,5 +1,5 @@
 <template>
-  <v-card class="w-100 mt-2 bb-none" ref="playerContainer" :loading="!audioDownloaded" v-bind="$attrs">
+  <v-card class="w-100 mt-2" ref="playerContainer" :loading="!audioDownloaded" v-bind="$attrs">
     <v-img
       v-if="albumArt && compact"
       :src="albumArt"
@@ -40,11 +40,12 @@
             <v-img :src="albumArt" aspect-ratio="1"></v-img>
           </v-avatar>
 
-          <div class="mx-auto" :class="albumArt && !compact && 'ml-3 d-inline-block'">
-            <span class="d-block" v-text="trackTitle"></span>
+          <div class="mx-auto d-flex d-md-block" :class="albumArt && !compact && 'ml-3 d-inline-block'">
+            <span class="d-block mr-1" v-text="trackTitle"></span>
+            <span class="hidden-md-and-up"> - </span>
             <span
               v-text="trackSubtitle"
-              class="d-block text-uppercase font-weight-bold"
+              class="d-block text-uppercase font-weight-bold ml-1 ml-md-0"
               style="letter-spacing: 0.05em;"
             ></span>
           </div>
@@ -58,9 +59,7 @@
           class="d-flex align-center py-0"
           :class="compact ? 'justify-center' : 'justify-end'"
         >
-          <div class="d-flex flex-column justify-center align-center">
-
-
+          <div class="w-100 d-flex flex-row flex-md-column justify-center align-center">
             <div class="d-flex justify-space-around">
               <div :class="compact ? 'mx-1' : 'mx-2'">
                 <v-btn icon :disabled="!audioDownloaded" @click="forwardSeconds(-5)">

@@ -53,11 +53,11 @@ export default {
 
 <style>
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 12px;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #066b01;
     border-radius: 20px
 }
