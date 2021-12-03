@@ -1,14 +1,26 @@
 <template>
   <v-container>
     <v-row class="text-center mt-3 align-start">
-      <v-col cols="5" class="d-flex align-center flex-column justify-center">
+      <v-col cols="5" class="d-flex align-center px-5 flex-column justify-center">
         <v-img
-          :src="mainLogo"
+          :src="require('@/assets/main.png')"
           contain
           width="100%"
         />
+        <v-audio-player
+          :src="require('@/assets/mosh.mp3')"
+          track-title="Мох "
+          track-subtitle="oXXXimiron"
+          :compact="$vuetify.breakpoint.smAndDown"
+          :autoplay="false"
+          :album-art="require('@/assets/main.png')"
+          color="#066b01"
+          track-color="#7ab078"
+        >
+        </v-audio-player>
+
         <v-expansion-panels>
-          <v-expansion-panel>
+          <v-expansion-panel class="mt-3">
             <v-expansion-panel-header>
               <h1 class="display-1 font-weight-bold text-center">
                 Мох - oXXXymiron
@@ -23,7 +35,7 @@
         </v-expansion-panels>
       </v-col>
 
-      <v-col cols="7" class="mb-4">
+      <v-col cols="7" class="mb-4 px-5">
         <h2 class="display-1 font-weight-bold text-center">
           Oxxxymiron
         </h2>
@@ -54,12 +66,16 @@
 import {mossText, oxyDescription} from '@/constants/text';
 import sv from '@/assets/sv.jpeg';
 import kiu from '@/assets/kiu.jpeg';
+import VAudioPlayer from "@/components/external/VuetifyAudioPlayer";
 
 export default {
   name: 'Main',
 
+  components: {
+    VAudioPlayer
+  },
+
   data: () => ({
-    mainLogo: '/Обложка.png',
     mossText,
     oxyDescription,
     links: [

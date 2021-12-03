@@ -10,7 +10,7 @@
           alt="Oxxxymiron Logo"
           class="shrink mr-2"
           contain
-          src="/img/logo.png"
+          :src="require('@/assets/logo.png')"
           transition="scale-transition"
           width="40"
         />
