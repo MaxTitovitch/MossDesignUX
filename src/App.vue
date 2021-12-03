@@ -54,7 +54,8 @@ export default {
 <style>
 
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 4px;
+    height: 4px;
 }
 
 *::-webkit-scrollbar-thumb {
